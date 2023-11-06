@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const exp = require('constants');
+const productRouter = require('./routes/product/product');
 
 
 mongoose.connect("mongodb://127.0.0.1:27017/ecomDB")
@@ -22,7 +23,7 @@ app.use(express.urlencoded({extended: true}));
 
 
 
-
+app.use(productRouter);
 
 
 app.listen(8080,()=>{
