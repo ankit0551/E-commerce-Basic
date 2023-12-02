@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate') -%>
+
+<div class="row">
+    <div class="col-6 mx-auto">
+        <form action="/products" method="post">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name: </label>
+                <input type="text" name="name" class="form-control" id="name" placeholder="Name of the Product">
+            </div>
+            <div class="mb-3">
+                <label for="img" class="form-label">Image: </label>
+                <input type="text" name="img" class="form-control" id="img" placeholder="Image of the Product">
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price: </label>
+                <input type="number" name="price" class="form-control" id="price" placeholder="Price of the Product">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Description: </label>
+                <textarea name="desc" id="desc"  rows="3"></textarea>
+            </div>
+            <button class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>

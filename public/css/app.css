@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+    
+}
+.card img{
+    height: 180px;
+}
+
+
+textarea {
+    width: 100%;
+}
+
+.btn-delete{
+    display: inline-block;
+}

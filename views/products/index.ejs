@@ -1,0 +1,22 @@
+<% layout('layouts/boilerplate') -%>
+
+<div class="row ">
+    <% for(let item of allproducts) { %>
+      
+        <div class="col-lg-4 mt-3">
+        <div class="card mx-auto" style="width: 18rem;">
+            <img src="<%= item.img %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= item.name %></h5>
+              <p class="card-text"><%= item.desc %></p>
+              <p class="card-text"><%= item.price %></p>
+              <a href="/products/<%= item._id %>" class="btn btn-primary">View</a>
+              <form class="btn-delete" action="/product/delete/<%= item._id %>?_method=DELETE" method="post">
+                <button class="btn btn-danger ">Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      
+        <% } %>
+</div>
