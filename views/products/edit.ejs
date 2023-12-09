@@ -2,22 +2,22 @@
 
 <div class="row">
     <div class="col-6 mx-auto">
-        <form action="/products/<%= item._id %>?_method=PATCH" method="post">
+        <form action="/products/<%= item._id %>?_method=PATCH" method="post" class="needs-validation" novalidate>
             <div class="mb-3">
                 <label for="name" class="form-label">Name: </label>
-                <input type="text" name="name" class="form-control" value="<%=item.name%>" id="name" placeholder="Name of the Product">
+                <input type="text" name="name" class="form-control" value="<%=item.name%>" id="name" placeholder="Name of the Product" required>
             </div>
             <div class="mb-3">
                 <label for="img" class="form-label">Image: </label>
-                <input type="text" name="img" class="form-control" value="<%=item.img%>" id="img" placeholder="Image of the Product">
+                <input type="text" name="img" class="form-control" value="<%=item.img%>" id="img" placeholder="Image of the Product" required>
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Price: </label>
-                <input type="number" name="price" class="form-control" value="<%=item.price%>" id="price" placeholder="Price of the Product">
+                <input type="number" name="price" class="form-control" value="<%=item.price%>" id="price" placeholder="Price of the Product" required>
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Description: </label>
-                <textarea class="txt" name="desc" id="desc"   rows="3"><%= item.desc %></textarea>
+                <textarea class="txt" name="desc" id="desc"   rows="3" required><%= item.desc %></textarea>
             </div>
             <button class="btn btn-success">Submit</button>
         </form>
