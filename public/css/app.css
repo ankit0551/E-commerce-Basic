@@ -6,8 +6,9 @@
     height: 180px;
 }
 
-div{
-  max-width: 100vw;
+nav{
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 
 

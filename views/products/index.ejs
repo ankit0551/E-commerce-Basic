@@ -11,9 +11,15 @@
               <p class="card-text"><%= item.desc %></p>
               <p class="card-text"><%= item.price %></p>
               <a href="/products/<%= item._id %>" class="btn btn-primary">View</a>
-              <form class="btn-delete" action="/product/delete/<%= item._id %>?_method=DELETE" method="post">
-                <button class="btn btn-danger ">Delete</button>
+              <form action="/user/<%= item._id %>" method="post" class="d-inline">
+                <button class="btn btn-warning">Add to cart</button>
               </form>
+              <% if(currentUser && currentUser.role === 'seller' ) { %>
+                <form class="btn-delete" action="/product/delete/<%= item._id %>?_method=DELETE" method="post">
+                  <button class="btn btn-danger ">Delete</button>
+                </form>
+              <% } %>
+              
             </div>
           </div>
         </div>

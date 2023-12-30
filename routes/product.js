@@ -1,11 +1,12 @@
 const Product = require('../models/Product');
 const {Router} = require('express');
 const router = Router();
-const {validateProduct} = require('../middleware');
+const {validateProduct,isLoggedIn, isSeller, isValidSeller} = require('../middleware');
 
 
 router.get('/products',async (req,res)=>{
     try{
+        
         allproducts = await Product.find();
         res.render('products/index',{allproducts});
     }catch(err){
@@ -14,7 +15,7 @@ router.get('/products',async (req,res)=>{
 
 })
 
-router.get('/product/new', (req,res)=>{
+router.get('/product/new', isLoggedIn, isSeller,(req,res)=>{
     try{
         res.render('products/new')
     }catch(err){
@@ -23,10 +24,10 @@ router.get('/product/new', (req,res)=>{
 
 })
 
-router.post('/products', validateProduct ,async (req, res)=> {
+router.post('/products',isLoggedIn , isSeller, validateProduct ,async (req, res)=> {
     try{
         const {name, img, price, desc} = req.body;
-        await Product.create({name, img, price, desc});
+        await Product.create({name, img, price, desc, author : req.user._id});
         req.flash('success','Product added Successfully');
         res.redirect('/products');
     }catch(err){
@@ -46,7 +47,7 @@ router.get('/products/:id', async (req,res)=>{
 
 })
 
-router.get('/products/:id/edit', async (req,res)=>{
+router.get('/products/:id/edit', isLoggedIn,isValidSeller,async (req,res)=>{
     try{
         const {id} = req.params;
         const item = await Product.findById(id);
@@ -57,7 +58,7 @@ router.get('/products/:id/edit', async (req,res)=>{
 
 })
 
-router.patch('/products/:id', validateProduct ,async (req, res)=>{
+router.patch('/products/:id',isLoggedIn, isValidSeller,validateProduct ,async (req, res)=>{
     try{
         const {id} = req.params;
         const {name, img, price, desc} = req.body;
@@ -72,7 +73,7 @@ router.patch('/products/:id', validateProduct ,async (req, res)=>{
 
 
 
-router.delete('/product/delete/:id', async (req,res)=>{
+router.delete('/product/delete/:id',isLoggedIn, isValidSeller,async (req,res)=>{
     try{
         const {id} = req.params;
         await Product.findByIdAndDelete(id);

@@ -1,0 +1,35 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="row">
+    <div class="col-lg-6 col-10 mx-auto">
+        <h1 class="my-3">Sign Up</h1>
+        <form action="/register" method="post">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username : </label>
+                <input type="text"  class="form-control" name="username" id="username" placeholder="Username" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email : </label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="email" required>
+            </div>
+            <div class="mb-3">
+                <p class="mb-2">Want to register as ?</p>
+                <div class="my-1">
+                    <label class="form-check-label" for="buyer">Buyer :</label>
+                    <input type="radio" class="form-check-input" name="role" value="buyer" id="buyer">
+                </div>
+                <div class="my-1">
+                    <label class="form-check-label" for="seller">Seller :</label>
+                    <input type="radio" class="form-check-input" name="role" value="seller" id="seller">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password : </label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="password" required>
+            </div>
+            
+            <button class="btn btn-success">Sign Up</button>
+            <p>Already have an Account? <a href="/login">Login</a></p>
+        </form>
+    </div>
+</div>
