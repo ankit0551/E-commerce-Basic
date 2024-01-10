@@ -10,7 +10,7 @@ let products = [
     },
     {
         name : "MacBook Air M2",
-        img : "",
+        img : "https://images.unsplash.com/photo-1696355607944-650405f2aa2e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2Ftc3VuZyUyMHMyM3xlbnwwfHwwfHx8MA%3D%3D",
         price : 134999,
         desc : "MacBook Air laptop, now in 13-inch and 15-inch models. With the blazing-fast M2 chip, all-day battery life, and a stunning Liquid Retina display."
     },
